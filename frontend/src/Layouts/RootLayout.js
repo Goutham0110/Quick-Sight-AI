@@ -1,62 +1,74 @@
 import React from "react";
 import models from "../constants";
-import NavbarMenu from "./NavbarMenu";
-import { Grid, AppBar, Toolbar, Typography } from "@mui/material";
+import { Grid, AppBar, Toolbar, Typography, Button } from "@mui/material";
+import { Outlet, useNavigate } from "react-router-dom";
 
 export default function RootLayout() {
+  const [path, setPath] = React.useState("/");
+  const navigate = useNavigate();
+
+  const handleClick = (path) => {
+    setPath(path);
+  };
+
+  React.useEffect(() => {
+    console.log("path", path);
+    navigate(path);
+  }, [path]);
+
   return (
     <>
       <Grid container>
         <Grid item xs={12}>
-          <AppBar color="primary">
+          <AppBar>
             <Toolbar>
-              <Grid container sx={{ display: "flex", alignItems: "center" }}>
-                <Grid item xs={1.5}>
+              <Grid
+                container
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  paddingX: "3vh",
+                }}
+              >
+                <Grid item xs={6}>
                   <Typography variant="h6">QuickSight AI</Typography>
                 </Grid>
-                <Grid
-                  item
-                  xs={10.5}
-                  sx={{
-                    "& button": {
-                      color: "#ffffff",
-                      marginX: 1,
-                      fontSize: "1.5vh",
-                    },
-                  }}
-                >
-                  <NavbarMenu
-                    label={"Data Analysis"}
-                    id={"data-analysis"}
-                    menu={models.dataAnalysis}
-                  />
-                  <NavbarMenu
-                    label={"Image Processing"}
-                    id={"image-processing"}
-                    menu={models.imageProcessing}
-                  />
-                  <NavbarMenu
-                    label={"Supervised Learning"}
-                    id={"supervised-learning"}
-                    menu={models.supervised}
-                  />
-                  <NavbarMenu
-                    label={"Unsupervised Learning"}
-                    id={"unsupervised-learning"}
-                    menu={models.unsupervised}
-                  />
-                  <NavbarMenu
-                    label={"Neural Networks"}
-                    id={"neural-networks"}
-                    menu={models.neuralNetworks}
-                  />
+                <Grid item xs={6}>
+                  <Grid
+                    container
+                    spacing={2}
+                    sx={{
+                      display: "flex",
+                      justifyContent: "flex-end",
+                      paddingX: "10vh",
+                    }}
+                  >
+                    <Grid item>
+                      <Button
+                        sx={{ color: "AppWorkspace" }}
+                        onClick={() => handleClick("/")}
+                      >
+                        Home
+                      </Button>
+                    </Grid>
+                    <Grid item>
+                      <Button
+                        sx={{ color: "AppWorkspace" }}
+                        onClick={() => handleClick("/docs")}
+                      >
+                        Docs
+                      </Button>
+                    </Grid>
+                  </Grid>
                 </Grid>
               </Grid>
             </Toolbar>
           </AppBar>
         </Grid>
 
-        <Grid item></Grid>
+        <Grid item xs={12} sx={{ marginTop: "8vh" }}>
+          <Outlet />
+        </Grid>
       </Grid>
     </>
   );
