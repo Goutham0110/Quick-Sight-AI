@@ -13,7 +13,9 @@ import homepageDescriptionImg from "../Assets/homepageDescription.jpg";
 import exploratoryDataAnalysisImg from "../Assets/exploratoryDataAnalysis.jpg";
 import machineLearningImg from "../Assets/machineLearning.jpg";
 import imageProcessingImg from "../Assets/imageProcessing.jpg";
-import CardMenu from "../Components/CardMenu";
+import CardMenu from "../Components/TitleCard";
+import models from "../constants";
+import ListCard from "../Components/ListCard";
 
 export default function HomePage() {
   return (
@@ -65,9 +67,9 @@ export default function HomePage() {
             </Grid>
           </Box>
         </Grid>
-        <Grid item xs={12}>
+        {/* <Grid item xs={12}>
           <Divider />
-        </Grid>
+        </Grid> */}
         <Grid item xs={12}>
           <Grid container>
             <Grid
@@ -92,40 +94,90 @@ export default function HomePage() {
               xs={12}
               sx={{
                 display: "flex",
-                justifyContent: "space-evenly",
-                paddingX: 15,
+                justifyContent: "center",
+                marginBottom: "3vh",
               }}
             >
-              <Grid container>
-                <Grid item>
-                  <CardMenu
-                    title={"Exploratory Data Analysis"}
-                    img={exploratoryDataAnalysisImg}
-                    desc={""}
-                  />
-                </Grid>
-                <Grid item>
-                  <CardMenu
-                    title={"Image Processing"}
-                    img={imageProcessingImg}
-                    desc={""}
-                  />
-                </Grid>
-                <Grid item>
-                  <CardMenu
-                    title={"Machine Learning"}
-                    img={machineLearningImg}
-                    desc={""}
-                  />
-                </Grid>
+
+              <Grid
+                container
+                xs={12}
+                sx={{
+                  '& > *': {
+                    p: 3,
+                    m: 1,
+                    width: '95vw',
+                    minHeight: '50vh',
+                    display: "flex",
+                    alignItems: "center"
+                  }
+                }}
+              >
+                <Paper
+                  variant="outlined"
+                >
+                  <Grid item xs={12}>
+                    <Grid container>
+                      <Grid item xs={3}>
+                        <CardMenu
+                          title={"Data Analysis"}
+                          img={exploratoryDataAnalysisImg}
+                          desc={""}
+                        />
+                      </Grid>
+                      <Grid item xs={9} sx={{display:"flex", flexWrap:"wrap"}}>
+                        {models.dataAnalysis.map((model, index) => {
+                          return <ListCard key={index} title={model.label} />
+                        })}
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                </Paper>
+                <Paper
+                  variant="outlined"
+                >
+                  <Grid item xs={12}>
+                    <Grid container>
+                      <Grid item xs={3}>
+                        <CardMenu
+                          title={"Image Processing"}
+                          img={imageProcessingImg}
+                          desc={""}
+                        />
+                      </Grid>
+                      <Grid item xs={9} sx={{display:"flex", flexWrap:"wrap"}}>
+                        {models.imageProcessing.map((model,index)=>{
+                          return <ListCard key={index} title={model.label} />
+                        })}
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                </Paper>
+                <Paper
+                  variant="outlined"
+                >
+                  <Grid item xs={12}>
+                    <Grid container>
+                      <Grid item xs={3}>
+                        <CardMenu
+                          title={"Machine Learning"}
+                          img={machineLearningImg}
+                          desc={""}
+                        />
+                      </Grid>
+                      <Grid item xs={9} sx={{display:"flex", flexWrap:"wrap"}} >
+                        {models.machineLearning.map((model, index) => {
+                          return <ListCard key={index} title={model.label} />
+                        })}
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                </Paper>
               </Grid>
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={12}>
-          <Divider />
-        </Grid>
-      </Grid>
+      </Grid >
       <Box height="50vh"></Box>
     </>
   );

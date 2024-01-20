@@ -3,12 +3,14 @@ const models = {
     { path: "/", element: <></> },
     { path: "/", element: <></> },
     { path: "/", element: <></> },
+    { path: "/", element: <></> },
+
   ],
   imageProcessing: [
     { path: "/", element: <></> },
     { path: "/", element: <></> },
   ],
-  supervised: [
+  machineLearning: [
     { path: "/linear-regression", element: <></>, label: "Linear Regression" },
     {
       path: "/logistic-regression",
@@ -28,8 +30,6 @@ const models = {
       element: <></>,
       label: "K Nearest Neighbour",
     },
-  ],
-  unsupervised: [
     {
       path: "/k-means-clustering",
       element: <></>,
@@ -41,8 +41,6 @@ const models = {
       label: "Principal Component Analysis",
     },
     { path: "/apriori-algorithm", element: <></>, label: "Apriori Algorithm" },
-  ],
-  neuralNetworks: [
     {
       path: "/deep-neural-network",
       element: <></>,

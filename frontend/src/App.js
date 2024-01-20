@@ -52,11 +52,8 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <HomePage /> },
       { path: "/docs", element: <></> },
-      models.dataAnalysis.map((route) => route),
-      models.imageProcessing.map((route) => route),
-      models.supervised.map((route) => route),
-      models.unsupervised.map((route) => route),
-      models.neuralNetworks.map((route) => route),
+      { path: "/upload-data", element: <></> },
+      { path: "/workspace", element: <></> }
     ],
   },
   errorRoutes.map((route) => route),
