@@ -1,8 +1,10 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { HttpStatusCode } from "axios";
+import GlobalStyles from "@mui/material/GlobalStyles";
 import models from "./constants";
 import RootLayout from "./Layouts/RootLayout";
 import ErrorPageLayout from "./Layouts/ErrorPageLayout";
+import HomePage from "./Pages/HomePage";
 
 const errorRoutes = [
   {
@@ -48,7 +50,8 @@ const router = createBrowserRouter([
     path: "/",
     element: <RootLayout />,
     children: [
-      { index: true, element: <></> },
+      { index: true, element: <HomePage /> },
+      { path: "/docs", element: <></> },
       models.dataAnalysis.map((route) => route),
       models.imageProcessing.map((route) => route),
       models.supervised.map((route) => route),
@@ -60,7 +63,30 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} fallbackElement={<></>} />;
+  return (
+    <>
+      <GlobalStyles
+        styles={{
+          "*::-webkit-scrollbar": {
+            width: "0.4em",
+            "z-index": "-2",
+          },
+          "*::-webkit-scrollbar-track": {
+            background: "#f1f1f1",
+            "-webkit-box-shadow": "inset 0 0 6px rgba(0,0,0,0.00)",
+          },
+          "*::-webkit-scrollbar-thumb": {
+            backgroundColor: "rgba(0,0,0,.1)",
+            borderRadius: "50px",
+          },
+          "*::-webkit-scrollbar-thumb:hover": {
+            backgroundColor: "rgba(0,0,0,.3)",
+          },
+        }}
+      />
+      <RouterProvider router={router} fallbackElement={<></>} />
+    </>
+  );
 }
 
 export default App;
