@@ -1,5 +1,4 @@
 import React from "react";
-import models from "../constants";
 import { Grid, AppBar, Toolbar, Typography, Button } from "@mui/material";
 import { Outlet, useNavigate } from "react-router-dom";
 
@@ -12,7 +11,6 @@ export default function RootLayout() {
   };
 
   React.useEffect(() => {
-    console.log("path", path);
     navigate(path);
   }, [path]);
 
@@ -65,7 +63,6 @@ export default function RootLayout() {
             </Toolbar>
           </AppBar>
         </Grid>
-
         <Grid item xs={12} sx={{ marginTop: "8vh" }}>
           <Outlet />
         </Grid>

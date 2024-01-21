@@ -8,8 +8,20 @@ import {
 } from "@mui/material";
 import ArrowDropDownCircleOutlinedIcon from "@mui/icons-material/ArrowDropDownCircleOutlined";
 import homepageDescriptionImg from "../Assets/homepageDescription.jpg";
+import { useNavigate } from "react-router-dom";
 
 export default function HomePage() {
+  const [path, setPath] = React.useState('');
+  const navigate = useNavigate();
+
+  const getStarted=()=>{
+    setPath("/upload");
+  }
+
+  React.useEffect(()=>{
+    navigate(path)
+  },[path])
+
   return (
     <>
       <Grid container spacing={4}>
@@ -41,7 +53,7 @@ export default function HomePage() {
                     </Typography>
                   </Grid>
                   <Grid item xs={12}>
-                    <Button variant="contained" size="large">
+                    <Button variant="contained" size="large" onClick={getStarted}>
                       Get Started
                     </Button>
                   </Grid>
