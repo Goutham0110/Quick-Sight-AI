@@ -11,7 +11,6 @@ import { useNavigate } from "react-router-dom";
 
 export default function UploadPage() {
     const [uploadedFile, setUploadedFile] = React.useState("");
-    const [path, setPath] = React.useState("");
     const navigate = useNavigate();
 
     const openFileUploader = () => {
@@ -23,11 +22,8 @@ export default function UploadPage() {
         setUploadedFile(uploadedFiles.name)
     }
     const navigateToWorkspace = () => {
-        setPath("/workspace");
+        navigate("/workspace");
     }
-    React.useEffect(() => {
-        navigate(path)
-    }, [path])
 
     return (
         <>
