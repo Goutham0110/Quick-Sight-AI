@@ -1,11 +1,13 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { HttpStatusCode } from "axios";
-import models from "./constants";
 import RootLayout from "./Layouts/RootLayout";
 import ErrorPageLayout from "./Layouts/ErrorPageLayout";
 import HomePage from "./Pages/HomePage";
 import UploadPage from "./Pages/UploadPage";
 import WorkSpacePage from "./Pages/WorkspacePage";
+import WorkflowsPage from "./Pages/WorkflowsPage";
+import store from "./Store"
+import { Provider } from 'react-redux'
 
 const errorRoutes = [
   {
@@ -52,6 +54,7 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       { index: true, element: <HomePage /> },
+      { path: "/workflows", element: <WorkflowsPage /> },
       { path: "/upload", element: <UploadPage /> },
       { path: "/workspace", element: <WorkSpacePage /> },
       { path: "/docs", element: <></> }
@@ -61,7 +64,9 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} fallbackElement={<></>} />;
+  return (<Provider store={store}>
+    <RouterProvider router={router} fallbackElement={<></>} />
+  </Provider>)
 }
 
 export default App;

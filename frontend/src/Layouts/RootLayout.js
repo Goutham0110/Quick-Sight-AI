@@ -3,16 +3,11 @@ import { Grid, AppBar, Toolbar, Typography, Button } from "@mui/material";
 import { Outlet, useNavigate } from "react-router-dom";
 
 export default function RootLayout() {
-  const [path, setPath] = React.useState("/");
   const navigate = useNavigate();
 
   const handleClick = (path) => {
-    setPath(path);
-  };
-
-  React.useEffect(() => {
     navigate(path);
-  }, [path]);
+  };
 
   return (
     <>

@@ -11,16 +11,11 @@ import homepageDescriptionImg from "../Assets/homepageDescription.jpg";
 import { useNavigate } from "react-router-dom";
 
 export default function HomePage() {
-  const [path, setPath] = React.useState('');
   const navigate = useNavigate();
 
   const getStarted=()=>{
-    setPath("/upload");
+    navigate("/upload");
   }
-
-  React.useEffect(()=>{
-    navigate(path)
-  },[path])
 
   return (
     <>
