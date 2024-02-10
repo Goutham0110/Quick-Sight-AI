@@ -14,7 +14,7 @@ export default function HomePage() {
   const navigate = useNavigate();
 
   const getStarted=()=>{
-    navigate("/workflows");
+    navigate("/architectures");
   }
 
   return (

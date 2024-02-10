@@ -5,7 +5,7 @@ import ErrorPageLayout from "./Layouts/ErrorPageLayout";
 import HomePage from "./Pages/HomePage";
 import UploadPage from "./Pages/UploadPage";
 import WorkSpacePage from "./Pages/WorkspacePage";
-import WorkflowsPage from "./Pages/WorkflowsPage";
+import ArchitecturesPage from "./Pages/ArchitecturesPage";
 import store from "./Store"
 import { Provider } from 'react-redux'
 
@@ -54,7 +54,7 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       { index: true, element: <HomePage /> },
-      { path: "/workflows", element: <WorkflowsPage /> },
+      { path: "/architectures", element: <ArchitecturesPage /> },
       { path: "/upload", element: <UploadPage /> },
       { path: "/workspace", element: <WorkSpacePage /> },
       { path: "/docs", element: <></> }

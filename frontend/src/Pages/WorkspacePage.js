@@ -3,16 +3,16 @@ import React from "react";
 import { useSelector } from 'react-redux'
 
 export default function WorkSpacePage() {
-  const workflow = useSelector((state) => state.workflow.id)
+  const architecture = useSelector((state) => state.architecture.id)
 
   return (
     <>
-      {workflow ?
+      {architecture ?
         <Typography variant="h5">
-          This is workspace of worflow id {workflow}
+          This is workspace of worflow id {architecture}
         </Typography> :
         <Typography variant="h5">
-          This is a workspace to create new workflow
+          This is a workspace to create new architecture
         </Typography>
       }
 
