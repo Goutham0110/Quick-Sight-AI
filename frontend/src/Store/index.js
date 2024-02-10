@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
-import workflowSlice from './workflowSlice';
+import architectureSlice from './architectureSlice';
 
 const store = configureStore({
     reducer: {
-        workflow: workflowSlice
+        architecture: architectureSlice
     },
 })
 

@@ -1,4 +1,4 @@
-export const workflowStatus = {
+export const ArchitectureStatus = {
     active: "Active",
     draft: "Draft",
 }
