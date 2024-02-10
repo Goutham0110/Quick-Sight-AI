@@ -1,0 +1,4 @@
+from os import environ
+
+MONGO_CONNECTION_STRING=environ.get("MONGO_CONNECTION_STRING")
+MONGO_DBNAME=environ.get("MONGO_DBNAME")
