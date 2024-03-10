@@ -4,7 +4,13 @@ dataset = Blueprint("dataset", __name__, url_prefix="/dataset")
 # includes
 
 
-@dataset.route("/")
-def index():
+@dataset.get("/")
+def get_dataset():
     db = current_app.config["db_connection"]
-    return "dataset"
+    return "get dataset"
+
+
+@dataset.post("/")
+def post_dataset():
+    db = current_app.config["db_connection"]
+    return "post dataset"
